@@ -1,0 +1,11 @@
+const AUTH_ROUTE = {
+  ROUTE: 'AUTH_ROUTE',
+  LOGIN: 'LOGIN',
+};
+
+const UNAUTH_ROUTE = {
+  ROUTE: 'UNAUTH_ROUTE',
+  SCREEN1: 'SCREEN1',
+};
+
+export {AUTH_ROUTE, UNAUTH_ROUTE};
