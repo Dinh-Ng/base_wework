@@ -1,3 +1,4 @@
+import {DrawerNavigationOptions} from '@react-navigation/drawer';
 import {StackNavigationOptions} from '@react-navigation/stack';
 
 import transition from './transitions';
@@ -19,4 +20,9 @@ const authNavigationOption: StackNavigationOptions = {
   },
 };
 
-export {authNavigationOption, unAuthNavigationOption};
+const drawerNavigationOption: DrawerNavigationOptions = {
+  headerShown: false,
+  drawerType: 'front',
+};
+
+export {authNavigationOption, drawerNavigationOption, unAuthNavigationOption};

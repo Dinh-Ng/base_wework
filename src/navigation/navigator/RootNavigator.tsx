@@ -1,16 +1,16 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {AUTH_ROUTE} from '@/navigation/config/appRoutes';
+import {APP_ROUTE, AUTH_ROUTE} from '@/navigation/config/appRoutes';
 
+import AppStack from './AppNavigator';
 import AuthStack from './AuthNavigator';
-import UnAuthStack from './UnAuthNavigator';
-
-const Stack = createStackNavigator();
 
 const RootNavigator = () => {
   // const [isAuth, setIsAuth] = useState(true);
-  const isAuth = true;
+  const isAuth = false;
+
+  const Stack = createStackNavigator();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -22,7 +22,7 @@ const RootNavigator = () => {
         </>
       ) : (
         <>
-          <Stack.Screen name="unAuth" component={UnAuthStack} />
+          <Stack.Screen name={APP_ROUTE.ROUTE} component={AppStack} />
         </>
       )}
     </Stack.Navigator>

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {StyleSheet, Text, TextProps} from 'react-native';
 
 import {logger} from '@/utilities/helper';
@@ -22,9 +22,7 @@ type StyledTextCombineProps =
   | StyledTextWithOriginValue
   | StyledTextWithI18nValue;
 
-const StyledText: FC<StyledTextCombineProps> = (
-  props: StyledTextCombineProps,
-) => {
+const StyledText = (props: StyledTextCombineProps) => {
   const {style, customStyle, i18nText, originValue} = props;
 
   let value;

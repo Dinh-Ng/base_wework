@@ -1,5 +1,9 @@
 import React, {RefObject} from 'react';
-import {CommonActions, StackActions} from '@react-navigation/native';
+import {
+  CommonActions,
+  DrawerActions,
+  StackActions,
+} from '@react-navigation/native';
 
 /**
  * The navigation is implemented as a service so that it can be used outside of components, for example in sagas.
@@ -23,6 +27,15 @@ function replace(routeName: string, params = {}) {
 
 function push(routeName: string, params = {}) {
   navigationRef.current.dispatch(StackActions.push(routeName, params));
+}
+
+// Drawer
+function openDrawer() {
+  navigationRef.current.dispatch(DrawerActions.openDrawer());
+}
+
+function closeDrawer() {
+  navigationRef.current.dispatch(DrawerActions.closeDraw());
 }
 
 /**
@@ -70,4 +83,6 @@ export default {
   replace,
   push,
   navigateAndReset,
+  openDrawer,
+  closeDrawer,
 };

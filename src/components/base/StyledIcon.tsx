@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {memo} from 'react';
 import isEqual from 'react-fast-compare';
 import {Image, ImageProps, ImageStyle, StyleProp} from 'react-native';
 import {scale} from 'react-native-size-matters';
@@ -8,7 +8,7 @@ interface Props extends ImageProps {
   customStyle?: StyleProp<ImageStyle>;
 }
 
-const StyledIcon: FC<Props> = (props: Props) => {
+const StyledIcon = (props: Props) => {
   return (
     <Image
       style={[

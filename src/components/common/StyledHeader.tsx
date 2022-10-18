@@ -1,14 +1,12 @@
 import React from 'react';
 import isEqual from 'react-fast-compare';
-import {View} from 'react-native';
+import {View, ViewProps} from 'react-native';
 import {ScaledSheet} from 'react-native-size-matters';
 
 import {Icons} from '@/assets';
 import Metrics from '@/assets/metrics';
 import {Themes} from '@/assets/themes';
-import StyledIcon from '@/components/base/StyledIcon';
-import StyledText from '@/components/base/StyledText';
-import StyledTouchable from '@/components/base/StyledTouchable';
+import {StyledIcon, StyledText, StyledTouchable} from '@/components/base';
 import navigationServices from '@/navigation/navigationServices';
 
 interface HeaderProps extends ViewProps {
