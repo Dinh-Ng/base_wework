@@ -52,7 +52,7 @@ const CustomDrawerContent = props => {
         </View>
         <ButtonList text="New collection" icon={Icons.addBox} />
         <View style={styles.collectView}>
-          <View>
+          <View style={styles.collectChildView}>
             <StyledIcon source={Icons.arrowDown} size={10} />
             <StyledText
               originValue="COLLECTIONS"
@@ -113,10 +113,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  collectChildView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   collectText: {
     textTransform: 'uppercase',
     fontSize: 13,
     fontWeight: '700',
+    marginLeft: 16,
   },
   editButton: {},
   editText: {
