@@ -12,7 +12,7 @@ import navigationServices from '@/navigation/navigationServices';
 interface HeaderProps extends ViewProps {
   isBack?: boolean;
   title?: string;
-  iconAction?: any;
+  rightText?: any;
   customStyle?: StyleProp<ViewStyle>;
   onPressAction?(): void;
   isShadow?: boolean;
@@ -23,7 +23,7 @@ const StyledHeader = (props: HeaderProps) => {
   const {
     isBack = true,
     title,
-    iconAction,
+    rightText,
     customStyle,
     onPressAction,
     isShadow,
@@ -43,7 +43,7 @@ const StyledHeader = (props: HeaderProps) => {
       <View style={styles.viewHeader}>
         {isBack ? (
           <StyledTouchable onPress={onBack} customStyle={styles.buttonBack}>
-            <StyledIcon source={Icons.back} size={30} />
+            <StyledIcon source={Icons.back} size={18} />
           </StyledTouchable>
         ) : (
           <View style={styles.buttonBack} />
@@ -53,14 +53,13 @@ const StyledHeader = (props: HeaderProps) => {
           customStyle={styles.title}
           numberOfLines={1}
         />
-        {iconAction ? (
+        {rightText ? (
           <StyledTouchable
             onPress={onPressAction}
             customStyle={styles.buttonAction}>
-            <StyledIcon
-              source={iconAction}
-              size={30}
-              customStyle={styles.iconAction}
+            <StyledText
+              originValue={rightText}
+              customStyle={styles.rightText}
             />
           </StyledTouchable>
         ) : (
@@ -99,12 +98,15 @@ const styles = ScaledSheet.create({
     color: Themes.COLORS.black,
   },
   buttonAction: {
-    width: '25@vs',
+    width: '35@vs',
     height: '25@vs',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  iconAction: {},
+  rightText: {
+    color: Themes.COLORS.base,
+    fontSize: 18,
+  },
   shadow: {
     shadowColor: Themes.COLORS.black,
     shadowOffset: {

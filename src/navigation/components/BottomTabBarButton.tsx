@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 import {Themes} from '@/assets/themes';
 import {StyledIcon, StyledText, StyledTouchable} from '@/components/base';
 
-const ButtonTab = ({route, isFocused, title, navigation, icon}) => {
+const ButtonTab = ({route, isFocused, navigation, info}) => {
   const onPress = () => {
     const event = navigation.emit({
       type: 'tabPress',
@@ -29,12 +29,12 @@ const ButtonTab = ({route, isFocused, title, navigation, icon}) => {
       onPress={onPress}
       onLongPress={onLongPress}>
       <StyledIcon
-        source={icon}
+        source={isFocused ? info.iconFocus : info.icon}
         size={20}
         customStyle={!isFocused ?? styles.focusedIcon}
       />
       <StyledText
-        originValue={title}
+        originValue={info.title}
         customStyle={isFocused ? styles.title : styles.unfocusedTitle}
       />
     </StyledTouchable>

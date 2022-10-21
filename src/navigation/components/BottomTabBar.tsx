@@ -7,6 +7,7 @@ import {NavigationHelpers, TabNavigationState} from '@react-navigation/native';
 import {Icons, Images} from '@/assets';
 import Metrics from '@/assets/metrics';
 import {StyledIcon, StyledTouchable} from '@/components/base';
+import {APP_ROUTE} from '@/navigation/config/appRoutes';
 
 import ButtonTab from './BottomTabBarButton';
 
@@ -16,16 +17,18 @@ interface TabBarProps extends BottomTabBarProps {
   descriptors?: BottomTabDescriptorMap;
 }
 
-const BottomTabBar = ({state, descriptors, navigation}: TabBarProps) => {
+const BottomTabBar = ({state, navigation}: TabBarProps) => {
   //   console.log('descriptors', descriptors);
   const tabBarInfoList = [
     {
       title: 'Danh bạ',
       icon: Icons.phoneBook,
+      iconFocus: Icons.phoneBookFocus,
     },
     {
       title: 'Gần đây',
       icon: Icons.history,
+      iconFocus: Icons.historyFocus,
     },
   ];
   return (
@@ -36,22 +39,24 @@ const BottomTabBar = ({state, descriptors, navigation}: TabBarProps) => {
         style={styles.imageBackground}>
         <View style={styles.constainer}>
           {state.routes.map((route, index) => {
-            const {options} = descriptors[route.key];
+            // const {options} = descriptors[route.key];
             const isFocused = state.index === index;
-            console.log('options', options);
             return (
               <ButtonTab
                 route={route}
                 isFocused={isFocused}
                 key={route?.key}
-                title={tabBarInfoList[index].title}
                 navigation={navigation}
-                icon={tabBarInfoList[index].icon}
+                info={tabBarInfoList[index]}
               />
             );
           })}
         </View>
-        <StyledTouchable customStyle={styles.floatButton}>
+        <StyledTouchable
+          customStyle={styles.floatButton}
+          onPress={() => {
+            navigation.navigate(APP_ROUTE.INFO_CONTACT);
+          }}>
           <StyledIcon source={Icons.addContact} size={60} />
         </StyledTouchable>
       </ImageBackground>
